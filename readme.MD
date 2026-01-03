@@ -7,18 +7,26 @@ eksctl utils associate-iam-oidc-provider \
     --approve
 ```
 
-Download IAM Policy
+2. Download IAM Policy
+
+```
 
 curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.16.0/docs/install/iam_policy.json
 
-Create IAM policy
+```
+
+3. Create IAM policy
+
+```
 
 aws iam create-policy \
     --policy-name AWSLoadBalancerControllerIAMPolicy \
     --policy-document file://iam-policy.json
 
-Create Service account and IAM role. map the above policy
+```
+4. Create Service account and IAM role. map the above policy
 
+ ```
 eksctl create iamserviceaccount \
 --cluster=roboshop-dev \
 --namespace=kube-system \
@@ -27,6 +35,8 @@ eksctl create iamserviceaccount \
 --override-existing-serviceaccounts \
 --region us-east-1 \
 --approve
+
+```
 
 Install drivers
 
