@@ -6,16 +6,13 @@ eksctl utils associate-iam-oidc-provider \
     --cluster roboshop-dev \
     --approve
 ```
-
 2. Download IAM Policy
 ```
-
 curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v2.16.0/docs/install/iam_policy.json
 ```
 
 3. Create IAM policy
 ```
-
 aws iam create-policy \
     --policy-name AWSLoadBalancerControllerIAMPolicy \
     --policy-document file://iam-policy.json
@@ -31,7 +28,6 @@ eksctl create iamserviceaccount \
 --region us-east-1 \
 --approve
 ```
-
 ### Install drivers
 
 Install helm
